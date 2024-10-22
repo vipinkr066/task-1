@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix Clone</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <h1>Netflix Clone</h1>
+        <input type="text" id="search" class="search-bar" placeholder="Search...">
+    </header>
+
+    <!-- Movie List -->
+    <div class="movie-grid" id="movieGrid">
+        <!-- Movie cards will be injected here using JavaScript -->
+    </div>
+
+    <!-- Movie Detail Section (Initially Hidden) -->
+    <div class="movie-details" id="movieDetails" style="display: none;">
+        <button id="backButton">Back</button>
+        <h2 id="movieTitle"></h2>
+        <p id="movieDescription"></p>
+        <p id="movieGenre"></p>
+        <p id="movieYear"></p>
+        <button id="playButton">Play</button>
+    </div>
+
+    <!-- Script to handle dynamic content -->
+    <script src="app.js"></script>
+</body>
+</html>
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #141414;
+    color: white;
+}
+.header {
+    padding: 20px;
+    background-color: #111;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header h1 {
+    color: #e50914;
+}
+.search-bar {
+    background-color: #333;
+    border: none;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+.movie-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+}
+.movie-card {
+    width: 200px;
+    cursor: pointer;
+}
+.movie-card img {
+    width: 100%;
+    border-radius: 5px;
+}
+.movie-card h3 {
+    margin-top: 5px;
+    text-align: center;
+}
+.movie-details {
+    padding: 20px;
+}
+button {
+    background-color: #e50914;
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+// Sample movie data
+const movies = [
+    {
+        id: 1,
+        title: "Stranger Things",
+        poster: "https://via.placeholder.com/200x300?text=Stranger+Things",
+        description: "A group of kids uncover a series of supernatural mysteries.",
+        genre: "Drama, Fantasy",
+        year: 2016
+    },
+    {
+        id: 2,
+        title: "Breaking Bad",
+        poster: "https://via.placeholder.com/200x300?text=Breaking+Bad",
+        description: "A high school chemistry teacher turned meth kingpin.",
+        genre: "Drama, Thriller",
+        year: 2008
+    },
+    // Add more movies as needed
+];
+
+// DOM Elements
+const movieGrid = document.getElementById('movieGrid');
+const movieDetails = document.getElementById('movieDetails');
+const backButton = document.getElementById('backButton');
+const playButton = document.getElementById('playButton');
+
+// Elements for movie details
+const movieTitle = document.getElementById('movieTitle');
+const movieDescription = document.getElementById('movieDescription');
+const movieGenre = document.getElementById('movieGenre');
+const movieYear = document.getElementById('movieYear');
+
+// Populate movie list
+function displayMovies() {
+    movieGrid.innerHTML = '';
+    movies.forEach(movie => {
+        const movieCard = document.createElement('div');
+        movieCard.classList.add('movie-card');
+        movieCard.innerHTML = `
+            <img src="${movie.poster}" alt="${movie.title}">
+            <h3>${movie.title}</h3>
+        `;
+        movieCard.addEventListener('click', () => showMovieDetails(movie));
+        movieGrid.appendChild(movieCard);
+    });
+}
+
+// Show movie details
+function showMovieDetails(movie) {
+    movieGrid.style.display = 'none';
+    movieDetails.style.display = 'block';
+    movieTitle.textContent = movie.title;
+    movieDescription.textContent = movie.description;
+    movieGenre.textContent = Genre: ${movie.genre};
+    movieYear.textContent = Year: ${movie.year};
+}
+
+// Back button functionality
+backButton.addEventListener('click', () => {
+    movieDetails.style.display = 'none';
+    movieGrid.style.display = 'flex';
+});
+
+// Simulate movie playback
+playButton.addEventListener('click', () => {
+    alert('Playing movie...');
+});
+
+// Initialize app by displaying movies
+displayMovies();
