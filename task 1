@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> [VIPIN KUMAR]'s Homepage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        header {
+            background: #007BFF;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        section {
+            margin: 20px 0;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>VIPIN KUMAR </h1>
+    <p> NEW DELHI </p>
+</header>
+
+<section>
+    <h2>About Me</h2>
+    <p>
+        Hi! I'm VIPIN KUMAR , a web developer with a passion for technology. I enjoy coding. My goal is to inspire others.
+    </p>
+</section>
+
+<section>
+    <h2>Connect with Me</h2>
+    <p>
+        ADD 853/2 mahipalpur new delhi 110037
+        
+    </p>
+</section>
+
+<footer>
+    <p>Thank you for visiting  my home page!</p>
+</footer>
+
+</body>
+</html>
